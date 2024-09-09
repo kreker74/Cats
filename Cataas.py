@@ -30,6 +30,9 @@ def set_image():
         label.config(image=img)
         label.image = img
 
+def exit():
+    window.destroy()
+
 
 window = Tk()
 window.title("Cats!")
