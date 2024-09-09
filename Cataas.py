@@ -21,6 +21,10 @@ def load_image(url):
         return None
 
 def open_new_window():
+    tag = tag_entry.get()
+    url_with_tag = f'https://cataas.com/cat/{tag}' if tag else 'https://cataas.com/cat'
+    img = load_image(url_with_tag)
+
     img = load_image(url)
     if img:
         new_window = Toplevel()
@@ -40,11 +44,16 @@ window = Tk()
 window.title("Cats!")
 window.geometry("600x520")
 
+tag_entry = Entry()
+tag_entry.pack()
+
+# Кнопка для загрузки изображения с тегом
+load_button = Button(text="Загрузить по тегу", command=open_new_window)
+load_button.pack()
+
 label = Label()
 label.pack()
 
-# update_button = Button(text="Обновить", command=set_image)
-# update_button.pack()
 
 # Создаем меню
 menu_bar = Menu(window)
